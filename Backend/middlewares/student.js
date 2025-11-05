@@ -1,4 +1,4 @@
-const { Student } = require("Database\database.js");
+const { Student } = require("../../Database/database");
 
 function studentMiddleware(req, res, next) {
     const studentEmail = req.headers.studentEmail;

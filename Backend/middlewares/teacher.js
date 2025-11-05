@@ -1,15 +1,15 @@
-const { Teacher } = require("Database\database.js");
+const { Teacher } = require("../../Database/database");
 
 function teacherMiddleware(req, res, next) {
     const teacherEmail = req.headers.teacherEmail;
     const teacherId = req.headers.teacherId;
     const teacherPassword = req.headers.teacherPassword;
 
-    Teacher.findone({
+    Teacher.findOne({
         teacherEmail: teacherEmail,
         teacherId: teacherId,
         teacherPassword: teacherPassword
-    }).then(function (value) {
+    }).then(function(value) {
         if (value) {
             next()
         }
