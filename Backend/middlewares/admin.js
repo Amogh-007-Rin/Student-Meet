@@ -1,4 +1,4 @@
-const { Admin } = require("Database\database.js")
+const { Admin } = require("../../Database/database")
 
 function adminMiddleware(req, res, next) {
     const username = req.body.username;
