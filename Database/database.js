@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const mongoDbUrl = "mongodb+srv://AmoghDath:Egoistisagiyoichi@28@uialpha.udvodoi.mongodb.net/Student-Meet"
+const mongoDbUrl = "mongodb+srv://AmoghDath:Egoistisagiyoichi%4028@uialpha.udvodoi.mongodb.net/Student-meet"
 mongoose.connect(mongoDbUrl)
 
 const AdminSchema = new mongoose.Schema({
@@ -30,7 +30,7 @@ const Student = mongoose.model("Student", StudentSchema);
 const Teacher = mongoose.model("Teacher", TeacherSchema);
 
 module.exports = {
-    Admin,
-    Student,
-    Teacher
+    Admin : Admin,
+    Student : Student,
+    Teacher : Teacher
 }
