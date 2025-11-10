@@ -9,6 +9,14 @@ const teacherMiddleware = require("./middlewares/teacher")
 const port = 3000;
 app.use(express.json())
 
+app.get("/", function(req,res){
+    res.json({
+        message : "The backend is up"
+    })
+});
+
+
+// <-------------------------------------------------------- ALL ADMIN RELATED ROUTES WILL START FROM HERE --------------------------------------------------------->
 // Admin signup route
 app.post("/admin/signup", upload.none(), async (req, res) => {
     // This code represents the admin signup logic
@@ -30,6 +38,8 @@ app.post("/admin/signin", upload.none(), adminMiddleware, function(req , res){
         message : "signup successful"
        })
 });
+
+// <---------------------------------------------------------- ALL STUDENT RELATED ROUTES WILL START FROM HERE ------------------------------------------------------>
 
 // Student signup route
 app.post("/student/signup", upload.none(), async (req , res) => {
@@ -53,12 +63,31 @@ app.post("/student/signup", upload.none(), async (req , res) => {
 });
 
 // Student signin route
-
 app.post("/student/signin", upload.none(), studentMiddleware, function(req ,res){
     res.status(200).json({
         message : "signup successfully"
     })
 });
+
+// Route to get total number of students enrolled
+app.get("/students/getcount", adminMiddleware,  async function(req, res){
+    try {
+        let studentCount = await Student.countDocuments({});
+        res.json({
+            success: true,
+            TotalStudentsEnrolled: studentCount
+        });
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Error fetching student count",
+            error: error.message
+        });
+    }
+});
+
+// <--------------------------------------------------- ALL TEACHER RELATED ROUTES WILL START FROM HERE ------------------------------------------------->
+
 
 // Teacher signup route
 app.post("/teacher/signup", upload.none(), async (req, res) =>{
@@ -81,6 +110,7 @@ app.post("/teacher/signup", upload.none(), async (req, res) =>{
     })
 });
 
+
 // Teacher signin route
 app.post("/teacher/signin", upload.none(), teacherMiddleware, function(req ,res){
     res.status(200).json({
@@ -88,11 +118,7 @@ app.post("/teacher/signin", upload.none(), teacherMiddleware, function(req ,res)
     })
 });
 
-app.get("/", function(req,res){
-    res.json({
-        message : "The backend is up"
-    })
-});
+
 
 app.listen(port, function(){
     console.log("The server is running at port :", port)

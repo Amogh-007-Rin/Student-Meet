@@ -25,6 +25,14 @@ const TeacherSchema = new mongoose.Schema({
 
 });
 
+const TeacherDashboardSchema = new mongoose.Schema({
+    teacherDiscription : String,
+    teacherExperience : String,
+    teacherAchievements : String
+});
+
+
+
 const Admin = mongoose.model("Admin", AdminSchema);
 const Student = mongoose.model("Student", StudentSchema);
 const Teacher = mongoose.model("Teacher", TeacherSchema);
