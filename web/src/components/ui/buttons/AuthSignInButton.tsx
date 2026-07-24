@@ -1,17 +1,19 @@
 'use client'
-
 import { motion } from "framer-motion";
 
 interface AuthSignInButtonProps {
+    tag?: string;
     iconSrc: string;
     className?: string;
+    onClick: () => void;
 }
 
-export default function AuthSignInButton({ iconSrc, className }: AuthSignInButtonProps) {
+export default function AuthSignInButton({ iconSrc, className, onClick }: AuthSignInButtonProps) {
     return (
         <motion.button
             whileHover="hover"
             className="w-24 h-24 bg-[#09090B] hover:bg-[#0f0f11] border border-[#1C1C1F] rounded-full flex justify-center items-center"
+            onClick={onClick}
         >
             <motion.div className="w-full h-full bg-[#09090B] hover:bg-[#0f0f11] rounded-full flex justify-center items-center"
                 variants={{
@@ -21,7 +23,7 @@ export default function AuthSignInButton({ iconSrc, className }: AuthSignInButto
                     },
                 }}
                 >
-                    <img src={iconSrc} alt="" className={className} style={{ filter: 'brightness(0) invert(1)' }} />
+                    <img src={iconSrc} alt="" className={className}/>
             </motion.div>
         </motion.button>
     );
