@@ -24,7 +24,7 @@ export default function AuthSignInButton({ iconSrc, className, onClick }: AuthSi
                     },
                 }}
                 >
-                    <Image src={iconSrc} alt="" className={className} width={48} height={48}/>
+                    <Image src={iconSrc} alt="" className={className} width={48} height={48} preload={true}/>
             </motion.div>
         </motion.button>
     );
