@@ -38,7 +38,7 @@ export const NEXT_AUTH_CONFIG = {
     ],
     pages: {
     signIn: "/auth/signin", // Your custom sign-in page route
-    // error: "/auth/error",  // You can also customize error/signout pages here
+    error: "/auth/error",  // You can also customize error/signout pages here
     },
     
     secret: process.env.NEXTAUTH_SECRET
