@@ -1,5 +1,6 @@
 'use client'
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface AuthSignInButtonProps {
     tag?: string;
@@ -23,7 +24,7 @@ export default function AuthSignInButton({ iconSrc, className, onClick }: AuthSi
                     },
                 }}
                 >
-                    <img src={iconSrc} alt="" className={className}/>
+                    <Image src={iconSrc} alt="" className={className} width={48} height={48}/>
             </motion.div>
         </motion.button>
     );

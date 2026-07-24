@@ -30,9 +30,3 @@ export default function SignInPage() {
         </Suspense>
     );
 };
-
-/* Wrapped inside the suspense because : Build fixed. The error occurred because useSearchParams()
-triggers a client-side bailout during static generation. At build time, there are no search params
-to read, so Next.js errors out unless the component using useSearchParams() is wrapped in a <Suspense>
-boundary. The fix extracts the useSearchParams() logic into a child component (SignInContent) and wraps
-it with <Suspense> in the page export, giving Next.js a fallback UI to render during prerendering.*/
