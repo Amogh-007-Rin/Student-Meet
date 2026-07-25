@@ -13,7 +13,7 @@ function SignInContent() {
 
     return (
         <div className="w-screen h-screen flex justify-center items-center bg-black">
-            <AuthSignInButton tag="githubAuthButton" iconSrc="/github.svg" className="w-12 h-12"
+            <AuthSignInButton tag="githubAuthButton" iconSrc="/github.svg" className="w-14 h-14"
                 onClick={() => signIn("github", { callbackUrl })}
             />
             <AuthSignInButton tag="googlehubAuthButton" iconSrc="/google.svg" className="w-12 h-12"
@@ -22,7 +22,7 @@ function SignInContent() {
             <AuthSignInButton tag="discordAuthButton" iconSrc="/discord.svg" className="w-12 h-12"
                 onClick={() => signIn("discord", { callbackUrl })}
             />
-            <AuthSignInButton tag="linkedInAuthButton" iconSrc="/linkedin.svg" className="w-12 h-12"
+            <AuthSignInButton tag="linkedInAuthButton" iconSrc="/linkedin.svg" className="w-10 h-10"
                 onClick={() => signIn("linkedin", { callbackUrl })}
             />
         </div>
